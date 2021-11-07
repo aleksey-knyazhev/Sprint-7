@@ -25,8 +25,10 @@ fun main() {
             var version = 0
             prepareStatement1.use { statement ->
                 statement.executeQuery().use {
-                    it.next()
-                    version = it.getInt("version")
+//                    it.next()
+//                    version = it.getInt("version")
+                    if (it.next())
+                        version = it.getInt("version")
                 }
             }
             val prepareStatement2 = conn.prepareStatement("update account1 set amount = amount - 100, version = version + 1 where id = 1 and version = ?")

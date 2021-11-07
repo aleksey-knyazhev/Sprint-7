@@ -4,9 +4,9 @@ import java.sql.DriverManager
 import java.sql.SQLException
 
 /**
-create table account1
+create table account2
 (
-id bigserial constraint account_pk primary key,
+id bigserial constraint account_pk2 primary key,
 amount int
 );
  */
@@ -20,11 +20,11 @@ fun main() {
         val autoCommit = conn.autoCommit
         try {
             conn.autoCommit = false
-            val prepareStatement1 = conn.prepareStatement("select * from account1 where id = 1 for update")
+            val prepareStatement1 = conn.prepareStatement("select * from account2 where id = 1 for update")
             prepareStatement1.use { statement ->
                 statement.executeQuery()
             }
-            val prepareStatement2 = conn.prepareStatement("update account1 set amount = amount - 100 where id = 1")
+            val prepareStatement2 = conn.prepareStatement("update account2 set amount = amount - 100 where id = 1")
             prepareStatement2.use { statement ->
                 statement.executeUpdate()
             }
