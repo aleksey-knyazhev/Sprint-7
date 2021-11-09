@@ -9,4 +9,8 @@ create table account1
     version int
 );
 
-
+create table account2
+(
+    id bigserial constraint account_pk2 primary key,
+    amount int
+);
