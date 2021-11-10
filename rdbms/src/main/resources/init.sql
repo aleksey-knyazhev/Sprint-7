@@ -1,6 +1,7 @@
 --liquibase formatted sql
 
 --changeset rrmasgutov:init
+--changeset aknyazhev:upd
 
 create table account1
 (

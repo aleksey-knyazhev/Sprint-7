@@ -13,14 +13,14 @@ class TransferConstraint {
     fun transfer(accountId1: Long, accountId2: Long, amount: Long) {
         connection.use { conn ->
             try {
-                val prepareStatement1 = conn.prepareStatement("update account3 set amount = amount + ? where id = ?;")
+                val prepareStatement1 = conn.prepareStatement("update account3 set amount = amount - ? where id = ?;")
                 prepareStatement1.use { statement ->
                     statement.setLong(1, amount)
                     statement.setLong(2, accountId1)
                     statement.executeUpdate()
                 }
 
-                val prepareStatement2 = conn.prepareStatement("update account3 set amount = amount - ? where id = ?;")
+                val prepareStatement2 = conn.prepareStatement("update account3 set amount = amount + ? where id = ?;")
                 prepareStatement2.use { statement ->
                     statement.setLong(1, amount)
                     statement.setLong(2, accountId2)
