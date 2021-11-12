@@ -1,7 +1,7 @@
 package ru.sber.entities
 
 import entities.Customer
-import ru.sber.entities.Customer
+//import ru.sber.entities.Customer
 import org.hibernate.annotations.Check
 import java.time.LocalDateTime
 import javax.persistence.*
