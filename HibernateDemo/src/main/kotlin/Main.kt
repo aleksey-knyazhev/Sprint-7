@@ -22,7 +22,7 @@ fun main() {
             studyType = StudyType.FULL_TIME,
             birthDate = LocalDate.now().minusYears(20),
             personalData = PersonalData("123", "74839"),
-            homeAddress = HomeAddress(street = "Кутузовский пр-т")
+            homeAddress = listOf(HomeAddress(street = "Кутузовский пр-т"))
         )
         val student2 = Student(
             name = "Ivan",
@@ -30,7 +30,7 @@ fun main() {
             studyType = StudyType.PART_TIME,
             birthDate = LocalDate.now().minusYears(24),
             personalData = PersonalData("543", "341444"),
-            homeAddress = HomeAddress(street = "Ленина")
+            homeAddress = listOf(HomeAddress(street = "Ленина"))
         )
 
         dao.save(student1)

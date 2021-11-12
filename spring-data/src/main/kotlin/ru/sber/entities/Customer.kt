@@ -6,6 +6,7 @@ import ru.sber.entities.Invoice
 import javax.persistence.*
 
 @Entity
+@Table(name="customer_spring_data")
 @Check(constraints = "taxpayerNumber >= 0")
 class Customer(
     @Id
@@ -24,6 +25,7 @@ class Customer(
 
     @OneToMany(
         cascade = [CascadeType.ALL],
+        mappedBy = "customer",
         fetch = FetchType.EAGER
     )
     var invoices: MutableList<Invoice> = mutableListOf()
