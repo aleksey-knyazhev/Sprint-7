@@ -1,4 +1,3 @@
-//package entities
 package ru.sber.entities
 
 import org.hibernate.annotations.Check
