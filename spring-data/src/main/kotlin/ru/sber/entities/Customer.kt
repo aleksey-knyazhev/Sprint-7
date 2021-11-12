@@ -1,12 +1,11 @@
-package entities
+//package entities
+package ru.sber.entities
 
 import org.hibernate.annotations.Check
 import org.hibernate.annotations.NaturalId
-import ru.sber.entities.Invoice
 import javax.persistence.*
 
 @Entity
-@Table(name="customer_spring_data")
 @Check(constraints = "taxpayerNumber >= 0")
 class Customer(
     @Id
@@ -14,10 +13,12 @@ class Customer(
     var id: Long = 0,
 
     @NaturalId
-    @Column(length = 12)
+//    @Column(length = 12)
+    @Column(length = 12, name = "taxpayernumber")
     var taxpayerNumber: Long,
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "customertype")
     var customerType: CustomerType,
 
     @Basic
@@ -25,9 +26,9 @@ class Customer(
 
     @OneToMany(
         cascade = [CascadeType.ALL],
-        mappedBy = "customer",
         fetch = FetchType.EAGER
     )
+    @JoinTable(name = "customer_invoice")
     var invoices: MutableList<Invoice> = mutableListOf()
 ) {
     override fun toString(): String {

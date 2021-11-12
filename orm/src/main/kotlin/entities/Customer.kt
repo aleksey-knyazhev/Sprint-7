@@ -13,9 +13,11 @@ class Customer(
 
     @NaturalId
     @Column(length = 12)
+//    @Column(length = 12, name = "taxpayer_number")
     var taxpayerNumber: Long,
 
     @Enumerated(value = EnumType.STRING)
+//    @Column(name = "customer_type")
     var customerType: CustomerType,
 
     @Basic
