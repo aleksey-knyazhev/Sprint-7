@@ -1,6 +1,5 @@
 package ru.sber.filter
 
-
 import javax.servlet.FilterChain
 import javax.servlet.FilterConfig
 import javax.servlet.ServletContext
